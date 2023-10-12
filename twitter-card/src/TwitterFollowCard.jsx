@@ -7,7 +7,6 @@ export function TwitterFollowCard({ userName, name, isFollowing }) {
         display: flex;
         gap: 10px;
         justify-content: space-between;
-        margin: 16px;
       `}
     >
       <header
