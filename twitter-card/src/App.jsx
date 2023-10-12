@@ -1,12 +1,22 @@
-import { TwitterFollowCard } from "./TwitterFollowCard"
+import { TwitterFollowCard } from "./TwitterFollowCard";
+import { css } from "@emotion/react";
 
 function App() {
-  return(
-    <>
-      <TwitterFollowCard userName='sergiotech-la' name='Sergio Antonio Herrera' isFollowing={true}/>
-      <TwitterFollowCard />
-    </>
-  )
+  return (
+    <div
+      css={css`
+        display: flex;
+        gap: 16px;
+      `}
+    >
+      <TwitterFollowCard
+        userName="sergiotech-la"
+        name="Sergio Antonio Herrera"
+        isFollowing={true}
+      />
+      <TwitterFollowCard userName="alely.jo" name="Joselyn Alely Anaya" />
+    </div>
+  );
 }
 
-export default App
+export default App;
