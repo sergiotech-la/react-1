@@ -6,6 +6,7 @@ function App() {
     <div
       css={css`
         display: flex;
+        flex-direction: column;
         gap: 16px;
       `}
     >
