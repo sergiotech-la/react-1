@@ -19,6 +19,8 @@ const notFollower = css`
 const follower = css`
   all: unset;
   margin-left: 16px;
+  width: 110px;
+  text-align: center;
   border: 1px solid #bbb;
   border-radius: 100px;
   background-color: transparent;
@@ -46,7 +48,11 @@ export function TwitterFollowCard({ userName, name }) {
   const handleMouseLeave = () => {
     setIsOnHover(!isOnHover);
   };
-  const buttonText = isFollowing ? "Siguiendo" : "Seguir";
+  const buttonText = isFollowing
+    ? isOnHover
+      ? "Dejar de seguir"
+      : "Siguiendo"
+    : "Seguir";
   const buttonClassName = isFollowing ? follower : notFollower;
   return (
     <article
