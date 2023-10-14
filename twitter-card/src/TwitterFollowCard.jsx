@@ -10,32 +10,41 @@ const notFollower = css`
   color: #000;
   cursor: pointer;
   padding: 6px 16px;
+  transition: 0.3s ease background-color;
   &:hover {
-    background-color: #c6c6c6;
-    transition: 0.3s ease background-color;
+    opacity: 0.8;
   }
 `;
 
 const follower = css`
   all: unset;
   margin-left: 16px;
-  border: 1px solid #fff;
+  border: 1px solid #bbb;
   border-radius: 100px;
-  background-color: #010101;
+  background-color: transparent;
   color: #fff;
   cursor: pointer;
   padding: 6px 16px;
+  transition: 0.3s ease background-color;
   &:hover {
-    background-color: #c6c6c6;
-    color: #000;
-    transition: 0.3s ease background-color;
+    background-color: #eb8c8c99;
+    color: #660202;
+    border: 1px solid transparent;
   }
 `;
 
 export function TwitterFollowCard({ userName, name }) {
   const [isFollowing, setIsFollowing] = useState(false);
+  const [isOnHover, setIsOnHover] = useState(false);
   const handleClick = () => {
     setIsFollowing(!isFollowing);
+  };
+  const handleMouseEnter = () => {
+    setIsOnHover(!isOnHover);
+  };
+
+  const handleMouseLeave = () => {
+    setIsOnHover(!isOnHover);
   };
   const buttonText = isFollowing ? "Siguiendo" : "Seguir";
   const buttonClassName = isFollowing ? follower : notFollower;
@@ -78,8 +87,13 @@ export function TwitterFollowCard({ userName, name }) {
         </div>
       </header>
       <aside>
-        <button css={buttonClassName} onClick={handleClick}>
-          {buttonText}
+        <button
+          css={buttonClassName}
+          onClick={handleClick}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <span>{buttonText}</span>
         </button>
       </aside>
     </article>
