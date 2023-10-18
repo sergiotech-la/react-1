@@ -44,8 +44,8 @@ function App() {
       ) {
         return boardToCheck[a];
       }
-      return null;
     }
+    return null;
   };
 
   const updateBoard = (index) => {
@@ -57,7 +57,7 @@ function App() {
     const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X;
     setTurn(newTurn);
     const newWinner = checkWinner(newBoard);
-    if newWinner {
+    if (newWinner) {
       setWinner(newWinner);
     }
   };
@@ -77,6 +77,7 @@ function App() {
         <Square isSelected={turn === TURNS.X}>{TURNS.X}</Square>
         <Square isSelected={turn === TURNS.O}>{TURNS.O}</Square>
       </section>
+      <section>{winner ? <h2>The winner is {winner}</h2> : null}</section>
     </main>
   );
 }
