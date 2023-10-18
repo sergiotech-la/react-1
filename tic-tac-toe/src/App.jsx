@@ -77,7 +77,9 @@ function App() {
         <Square isSelected={turn === TURNS.X}>{TURNS.X}</Square>
         <Square isSelected={turn === TURNS.O}>{TURNS.O}</Square>
       </section>
-      <section>{winner ? <h2>The winner is {winner}</h2> : null}</section>
+      <section>
+        {winner ? <h2>The winner is {winner.toUpperCase()}</h2> : null}
+      </section>
     </main>
   );
 }
