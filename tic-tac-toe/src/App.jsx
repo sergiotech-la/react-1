@@ -99,7 +99,12 @@ function App() {
           <div className="text">
             <h2>{winner === false ? "Draw" : "Winner:"}</h2>
             <header className="win">
-              {winner && <Square>{winner}</Square>}
+              {winner !== null &&
+                (winner === false ? (
+                  "No one won this game"
+                ) : (
+                  <Square>{winner}</Square>
+                ))}
             </header>
             <footer>
               <button onClick={resetGame}>Try again</button>
